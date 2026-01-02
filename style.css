@@ -1,0 +1,122 @@
+:root {
+  --bg-main: radial-gradient(circle at top, #5fc9ff, #003a66);
+  --bg-alt: radial-gradient(circle, #6fd3ff, #022b4f);
+
+  --water-glow: rgba(255, 255, 255, 0.25);
+  --water-soft: rgba(255, 255, 255, 0.15);
+
+  --blur-heavy: blur(14px);
+  --blur-light: blur(1px);
+
+  --float-distance: 12px;
+  --float-speed: 3s;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg-main);
+  color: #fff;
+}
+
+/* Hero Layout */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* CSS Splash Illusion */
+.splash-layer {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle, var(--water-glow) 20%, transparent 60%),
+    radial-gradient(circle at bottom, var(--water-soft), transparent 70%);
+  filter: var(--blur-heavy);
+  animation: pulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Product */
+.product {
+  position: relative;
+  z-index: 2;
+}
+
+.product img {
+  height: 320px;
+  animation: float var(--float-speed) ease-in-out infinite;
+}
+
+/* Copy */
+.copy {
+  position: absolute;
+  bottom: 15%;
+  text-align: center;
+  z-index: 3;
+}
+
+/* Hybrid Enhancement */
+
+ .hybrid-hero {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: none;
+}
+
+.splash-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.product-can {
+  position: relative;
+  height: 380px;
+  z-index: 2;
+  animation: float var(--float-speed) ease-in-out infinite;
+}
+
+/* Animations  */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--float-distance) * -1));
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
